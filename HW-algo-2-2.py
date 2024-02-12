@@ -1,3 +1,4 @@
+import sys
 from collections import deque
 
 
@@ -16,11 +17,15 @@ def is_palindrome(input_str):
     return True
 
 
-# Приклад використання:
-input_str = "Я несу гусеня"
-result = is_palindrome(input_str)
+if __name__ == "__main__":
+    # Отримуємо рядок з командного рядка (перший аргумент, бо нульовий - назва скрипта)
+    input_str = ' '.join(sys.argv[1:])
 
-if result:
-    print(f'Рядок "{input_str}" - паліндром')
-else:
-    print(f'Рядок "{input_str}" - не паліндром')
+    if not input_str:
+        print("Будь ласка, введіть рядок для перевірки паліндрому.")
+    else:
+        result = is_palindrome(input_str)
+        if result:
+            print(f'Рядок "{input_str}" - паліндром')
+        else:
+            print(f'Рядок "{input_str}" - не паліндром')
